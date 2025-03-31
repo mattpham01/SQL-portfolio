@@ -1,1 +1,3 @@
-# Shopping-Trends-
+# Analyzing Shopping Trends 
+In this project, I worked with a database called Shopping Trends, which contains transactional and customer data. Using SQL, I explored the dataset to answer key business questions, such as identifying top-selling products, analyzing customer purchasing patterns, and understanding seasonal sales trends. I wrote queries to extract meaningful insights, optimize data retrieval, and generate reports that could help businesses make data-driven decisions. This project showcases my ability to write efficient SQL queries, perform data aggregation, and derive actionable insights from real-world data.
+
