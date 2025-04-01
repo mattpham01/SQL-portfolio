@@ -126,7 +126,7 @@ GROUP BY customer_id
 ORDER BY rank 
 
 
---11. How many high spenders are there? Medium? Low? What's the perecentage of each?
+--11. How many high spenders are there? Medium? Low? What's the percentage of each?
 
 WITH customer_segments AS (
     SELECT customer_id, 
