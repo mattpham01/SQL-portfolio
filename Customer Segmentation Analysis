@@ -109,7 +109,6 @@ LIMIT 1
 
 --9. Identify the top 3 locations where frequent consumers purchase the most
 
-
 SELECT location, SUM(purchase_amount) AS total_spent 
 FROM shopping_trends 
 WHERE frequency_of_purchases = 'Weekly'
@@ -118,17 +117,12 @@ ORDER BY total_spent DESC
 LIMIT 3;
 
 
+--10. Rank the customers based on their total spending
 
-
-
-
-
-
-
-
-
-
-
-
+SELECT customer_id, SUM(purchase_amount) AS total_spent,  
+       DENSE_RANK() OVER (ORDER BY SUM(purchase_amount) DESC) AS rank  
+FROM shopping_trends  
+GROUP BY customer_id
+ORDER BY rank 
 
 
