@@ -126,3 +126,24 @@ GROUP BY customer_id
 ORDER BY rank 
 
 
+--11. How many high spenders are there? Medium? Low? What's the perecentage of each?
+
+WITH customer_segments AS (
+    SELECT customer_id, 
+           SUM(purchase_amount) AS total_spent,
+           CASE 
+               WHEN SUM(purchase_amount) > 75 THEN 'High Spender'
+               WHEN SUM(purchase_amount) BETWEEN 40 AND 76 THEN 'Medium Spender'
+               ELSE 'Low Spender'
+           END AS spending_segment
+    FROM shopping_trends
+    GROUP BY customer_id
+)
+SELECT spending_segment, 
+       COUNT(*) AS customer_count, 
+       ROUND((COUNT(*) * 100.0 / (SELECT COUNT(*) FROM customer_segments)), 2) AS percentage
+FROM customer_segments
+GROUP BY spending_segment
+ORDER BY percentage DESC;
+
+
